@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\begin{document}
+\section*{Metropolis Algorithm}
+This exercise uses a bare-bones implementation of the Metropolis algorithm to simulate data from a standard normal distribution.
+\par\vspace{0.3 cm}\noindent
+The density function of the standard normal distribution is:
+\[
+f(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{x^2}{2}\right)
+\]
+\subsection*{Computing likelihoods}
+The likelihood of a value $L(y)$ is obtained by evaluating the probability density function at $y$.
+\par\vspace{0.3 cm}
+For the standard normal distribution,
+\[
+L(y) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{y^2}{2}\right)
+\]
+\par\vspace{0.3 cm}\noindent
+In this case the ratio of the likelihoods of two values $y_1$ and $y_2$ simplifies to:
+\[
+\frac{L(y_2)}{L(y_1)} = \exp\left[\frac{1}{2}(y_1^2-y_2^2)\right]
+\]
+\par\vspace{0.3 cm}\noindent
+It is standard practice to compute the log of this ratio, which is more stable numerically, and exponentiate the result.  This is what the code below does.
+\subsection*{Brief outline of the algorithm}
+There are a number of variations, but a minimal form of the algorithm looks like this:
+\par\vspace{0.3 cm}\noindent
+\begin{itemize}
+\item Start with an initial value $y_1$.  
+\item Randomly pick a candidate for the next value in the draw.  The next value in the draw will be either this candidate, or the preceding element in the draw will repeat.
+\item Calculate the acceptance probability $\alpha$ as the smaller of one and the ratio of the likelihood function of $y_2$ to that of $y_1$
+\item Accept the candidate as the next element of the sample with probability $\alpha$
+\item Reject the candidate and instead use the previous element with probability $1-\alpha$
+\end{itemize}
+\par\vspace{0.3 cm}\noindent
+Magically, the end result is an array of random variables which, after an initial warmup period, has the distribution used to compute the likelihoods (the standard normal in this case).
+
+<<>>=
+#Metropolis exercise- standard normal: 
+N_draw<-10000              #number of values to draw
+
+y<-rep(0,N_draw)           #initialize draws to zero
+
+for(i in 2:N_draw){
+  y_cand<-runif(1,-5,5)             #pick candidate value from (-5,5) 
+  llr<-(y[[i-1]]^2-y_cand^2)/2      #compute the log of the likelihood ratio
+  ap<-min(1,exp(llr))               #compute the acceptance probability
+  q<-runif(1)                       #generate a random uniform variate 
+  if(q < ap) y[[i]]<-y_cand         #accept with probability ap
+   else y[i]<-y[i-1]                #reject with probability 1-ap
+}
+hist(y)
+mean(y)
+sd(y)
+
+@
+
+
+\end{document}
