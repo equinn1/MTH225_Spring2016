@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\begin{document}
+Bare-bones STAN parameter estimation
+<<>>=
+df<-read.csv("mth225_week2_normal.csv")       #read the csv file with the data
+y<-df$Y1                                      #select our group's column
+N<-length(y)                                  #number of observations in data
+str(y)                                        #show the structure of y
+@
+Call STAN
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("normal.stan")                 #call STAN using defaults
+print(stanfit)
+@
+Data Histogram
+<<>>=
+hist(y)
+y
+@
+
+<<>>=
+library(shinystan)
+launch_shinystan(stanfit)
+@
+
+\end{document}
