@@ -12,13 +12,3 @@ model {
   sigma ~ cauchy(0,10);      //half-cauchy prior 
   y ~ normal(mu,sigma);      //process data
 }
-generated quantities {
-  real yp[20];
-  real ym;
-  ym<-0.0;
-  for(i in 1:20){
-    yp[i]<-normal_rng(mu,sigma);
-    ym<-ym+yp[i];
-  }
-  ym<-ym/20;
-}
