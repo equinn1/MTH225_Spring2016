@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\begin{document}
+Week1 IC1 Example
+<<>>=
+load("week4_IC1_example.Rdata")
+@
+Pick the variable for your group by uncommenting the appropriate statements:
+<<>>=
+y1<-Y11   #group 1
+y2<-Y12
+
+#y1<-Y21   #group 2
+#y2<-Y22
+
+#y1<-Y31   #group 3
+#y2<-Y32
+
+#y1<-Y41   #group 4
+#y2<-Y42
+@
+Call STAN
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("week4_IC1_example.stan")       #call STAN using defaults
+print(stanfit)
+@
+Launch shinystan
+<<>>=
+library(shinystan)
+launch_shinystan(stanfit)
+@
+
+\end{document}

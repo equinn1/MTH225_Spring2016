@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\begin{document}
+\section*{MTH225 Week 4 In-class exercise 1: Two-sample inference}
+\textbf{Names:} (signatures only please, printed names will not be counted)
+\par\vspace{0.3 cm}\noindent
+\begin{tabular}{ll}
+1.)$\hspace{8 cm}$&4.)\\\\
+2.)&5.)\\\\
+3.)&6.)
+\end{tabular}
+\par\vspace{1 cm}
+\subsection*{Setup}
+\begin{itemize}
+\item 1) Open the example file \texttt{week4\_IC1\_example.Rnw} in RStudio.
+\item 1) Pull down the \textbf{File} manue and \textbf{Save As}:  \texttt{week4\_IC1\_group1\_problem1.Rnw}
+\item 2) Modify the code by changing the filename in the \texttt{load} statement to \texttt{"week4\_IC1\_problem1.Rdata"}
+\end{itemize}
+\par\vspace{1 cm}
+\subsection*{Group-specific customization}
+These instructions are written for \textbf{group1}.  
+\par\vspace{0.3 cm}
+If you are in group2, you do not have to modify the file beyond what you did in the Setup section, you can skip to the next section.
+\par\vspace{0.3 cm}
+If you are in group 2, 3, or 4, modify the code by:
+\begin{itemize}
+\item Replace every occurence of \textbf{group1} with your group name
+\item In the statement \texttt{y1<-Y11} replace Y11 with Y21 if your are in group 2, Y31 if group 3, or Y41 if group 4
+\item In the statement \texttt{y2<-Y12} replace Y12 with Y22 if your are in group 2, Y32 if group 3, or Y42 if group 4
+\end{itemize}
+\par\vspace{1 cm}
+\subsection*{Run the program and check for convergence}
+Now run the file using the \textbf{Compile PDF} icon.
+\par\vspace{0.5 cm}
+Examine the shinystan output \textbf{Diagnose} section for any evidence that the MCMC chains failed to converge.
+\par\vspace{0.5 cm}
+\subsection*{Examine the difference between the two samples}
+Close the shinystan display by clicking on the \textbf{Save \& Close} button. 
+\par\vspace{0.5 cm}
+Examine the PDF output postprocessing section.  In this section, the program performs the following:
+\par\vspace{0.3 cm}
+\begin{itemize}
+\item Display the \texttt{stanfit} data structure
+\item Count the number of values of $diff = mu1-mu2$  in the posterior draw
+\item Count the number of draws with $mu1>mu2$
+\item Compute the proportion of the values in the draw with $mu1>mu2$
+\end{itemize}
+\par\vspace{0.5 cm}
+Now interpret the meaning of the results with regard to the relative values of $\mu1$ and $\mu2$:
+\begin{itemize}
+\item If $p$ is close to zero, it means that $mu1>mu2$ with high probability
+\item If $p$ is close to one, it means that $mu2>mu1$ with high probability
+\item If $p$ is close to 0.5, it means that $mu1$ and $mu2$ are most likely not very different
+\end{itemize}
+\par\vspace{0.5 cm}
+These are gray areas where, say $p=0.75$, which would lead us to conclude that based on these samples and our priors, we believe there is about a 75 percent chance that $mu1$ is greater than $mu2$.  
+\par\vspace{0.5 cm}
+Based on the results for your samples, write your conclusion about the relative sizes of $mu1$ and $mu2$.
+\end{document}
