@@ -7,17 +7,8 @@ load("week4_IC1_example.Rdata")
 @
 Pick the variable for your group by uncommenting the appropriate statements:
 <<>>=
-y1<-Y11   #group 1
-y2<-Y12
-
-#y1<-Y21   #group 2
-#y2<-Y22
-
-#y1<-Y31   #group 3
-#y2<-Y32
-
-#y1<-Y41   #group 4
-#y2<-Y42
+y1<-Y11   #for group 1; Other groups, use Y21, Y31, and Y41 respectively
+y2<-Y12   #for group 1; Other groups, use Y22, Y32, and Y42 respectively
 @
 Call STAN
 <<>>=
@@ -31,6 +22,21 @@ Launch shinystan
 <<>>=
 library(shinystan)
 launch_shinystan(stanfit)
+@
+Post processing
+<<>>=
+post<-extract(stanfit)   #extract the values drawn from the posterior distribution
+
+str(post)                #list the structure of the extracted data
+
+n_diff = length(post$diff)   #count the number of differences drawn
+n_diff
+
+n_mu1_greater<-sum(as.numeric(post$diff>0))  #count the number of draws with $mu1$ greater than $mu2$
+n_mu1_greater
+
+p<-n_mu1_greater/n_diff   #estimated probability that mu1 is greater than mu2
+p                        
 @
 
 \end{document}
