@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\begin{document}
+\section*{MTH225-5 In-class exercise 2: Frequentist 2-sample tests}
+\textbf{Names:} (signatures only please, printed names will not be counted)
+\par\vspace{0.3 cm}\noindent
+\begin{tabular}{ll}
+1.)$\hspace{8 cm}$&4.)\\\\
+2.)&5.)\\\\
+3.)&6.)
+\end{tabular}
+\subsection*{Overview}
+\par\vspace{1 cm}\noindent
+In this exercise, we will compare the results of three different approaches to comparing the means of two samples: 
+\par\vspace{0.3 cm}
+\begin{itemize}
+\item The one-way ANOVA (classical or "ordinary least squares" version)
+\item The t-test
+\item A Bayesian ANOVA
+\end{itemize}
+\par\vspace{1 cm}
+\subsection*{Instructions for setting up the exercise}
+
+\par\vspace{0.5 cm}
+Change the line
+\par\vspace{0.5 cm}
+\texttt{y<-Y5                         \#Groups 1-4, use Y1, Y2, Y3, and Y4 respectively}
+\par\vspace{0.5 cm}
+to assign the variable corresponding to your group to \texttt{y}.
+\vfill
+\pagebreak
+\subsection*{Analyzing the output}
+After you run the program, use the output to answer the following questions:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item In the classical ANOVA, the aov1\$coefficients represent estimates of alpha1 and (alpha2-alpha1).  What are the corresponding estimates of alpha1 and alpha2? 
+\par\vspace{1 cm}\noindent
+\item In the classical ANOVA, the "Mean Sq" column in the "Residuals" row is an estimate of $\sigma^2$.  What is the corresponding estimate of $\sigma$? (take the square root of $\sigma^2$)
+\par\vspace{1 cm}\noindent
+\item In the classical t-test output, how do the sample estimates of the means of x and y compare to the classical ANOVA estimates of alpha1 and alpha2? 
+\par\vspace{1 cm}\noindent
+\item How do the Bayesian estimates of alpha1 and alpha2 compare to the estimates obtained by the classical procedures?
+\par\vspace{1 cm}\noindent
+\item What are the means of the prior distributions for alpha1 and alpha2 in the Bayesian analyses?
+\par\vspace{1 cm}\noindent
+\item How would you explain the fact that the classical estimates of alpha1 and alpha2 are slightly greater than the Bayesian estimates? (Hint: the Bayesian estimates are a compromise between the sample means and the prior means).
+\end{itemize}
+\end{document}

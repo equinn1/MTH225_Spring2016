@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\begin{document}
+\section*{Week5 IC2 Example}
+Pick the variable for your group by changing the y<-Y5 statement  (Y1 for group 1, Y2 for group 2, etc.)
+<<>>=
+load("week5_IC1_problem1.Rdata")
+str(Lvl)
+y<-Y5
+N<-length(y)
+@
+\subsection*{Peform a classical or frequentist ANOVA}
+This is also known as an "ordinary least squares" ANOVA.
+<<>>=
+aov1<-aov(y~Lvl)
+summary(aov1)
+@
+The coefficients represent the estimates of alpha1 and (alpha2-alpha1), respectively:
+<<>>=
+aov1$coefficients
+@
+\subsection*{Perform a classical t-test}
+Here we split y into y1 and y2 by level, then use the t.test() function
+<<>>=
+N1=sum(Lvl==1)                #count the number of level 1 observations
+y1<-y[1:N1]                   #y1 contains the level 1 values
+y2<-y[N1+1:N]                 #y2 contains the level 2 values
+t.test(y1,y2)
+@
+\subsection*{perform a Bayesian ANOVA}
+<<>>=
+L<-nlevels(Lvl)               #number of levels for the factor
+level<-as.integer(Lvl)        #convert factor to an integer
+                              #variable Lvl contains the single factor levels
+@
+Call STAN with model file specifying a single common standard deviation
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("week5_IC1_example.stan")       #call STAN using defaults
+print(stanfit)
+@
+Call STAN with model file specifying separate standard deviations by level
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("week5_IC1_example2.stan")       #call STAN using defaults
+print(stanfit)
+@
+launch shinystan
+<<>>=
+library(shinystan)
+launch_shinystan(stanfit)
+@
+\end{document}
