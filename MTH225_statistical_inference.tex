@@ -1,0 +1,38 @@
+\section{Frequentist and Bayesian Inference}
+There are two types of statistical inference, classical or \textit{frequentist} and \textit{Bayesian}.
+\par\vspace{0.5 cm}
+\subsection{Frequentist Inference}
+In classical or frequentist inference, 
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item Data values are considered to be random variables.
+\item Parameters are assumed to be fixed, unknown constants.
+\item Inference is based on hypothetical replication of the experiment that produced the data many times.
+\end{itemize}
+\par\vspace{0.5 cm}
+\subsection{Bayesian Inference}
+In Bayesian inference, 
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item Data values are considered to be known values, observed from a probability distribution with associated \textit{likelihood function}
+\item Parameters are assumed to be random variables.
+\item Each parameter has a \textit{prior} distribution representing the experimenter's belief about the likely values of the parameter, expressed in the form of a probability distribution.
+\item Inference is based on the \textit{posterior} distribution, which is a combination of the likelihood and the prior distribution, in effect a compromise.
+\end{itemize}
+\par\vspace{0.5 cm}
+A fully specified Bayesian model consists of:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item A likelihood function for the data
+\item A prior distribution for the parameter(s)
+\item A posterior distribution, which is a combination of the prior and the likelihood
+\end{itemize}
+\par\vspace{0.5 cm}
+The steps in Bayesian inference are:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item Define a prior distribution for each parameter
+\item Define a likelihood function for the data
+\item Use software such as STAN to draw a sample from the posterior distribution
+\item Use the draw from the posterior distribution to estimate quantities of interest like means, standard deviations, and percentiles.
+\end{itemize}

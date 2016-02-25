@@ -1,0 +1,179 @@
+\section{Statistical Inference}
+\textit{Statistical inference} refers to a collection of techniques used to obtain information from data.
+\par\vspace{0.5 cm}
+Probability theory is the foundation of statistical inference.  Probability theory is based on the notion of a \textit{probability experiment}:
+\par\vspace{0.5 cm}
+\begin{definition}[probability experiment] A probability experiment is a repeatable procedure that produces exactly one of a set of possible outcomes each time it is performed.
+\end{definition}
+\par\vspace{0.5 cm}
+Common examples of probability experiments include:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item Tossing a coin
+\item Rolling a die
+\item Drawing a card from a shuffled deck
+\item Picking a number between $0$ and $1$
+\item Tossing a coin until the first 'heads' occurs
+\end{itemize}
+\par\vspace{0.5 cm}
+The important characteristics of a probability experiment are:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item The outcomes must be distinct and well-defined
+\item Each time the experiment is performed, exacly one outcome occurs
+\item The experiment can be repeated any number of times
+\end{itemize}
+\par\vspace{0.5 cm}
+The set of possible outcomes of an experiment is called the \textit{sample space}.
+\par\vspace{0.5 cm}
+Examples of sample spaces:
+\par\vspace{0.5 cm}
+Tossing a coin: the sample space is:
+\[
+\Omega = \{\mbox{heads,tails}\}
+\]
+\par\vspace{0.5 cm}
+Rolling a die: the sample space is:
+\[
+\Omega = \{1,2,3,4,5,6\}
+\]
+\par\vspace{0.5 cm}
+Picking a card from a shuffled deck of 52 standard playing cards: the sample space has 52 elements, each representing one of the 52 cards.
+\par\vspace{0.5 cm}
+Picking a number between zero and one: the sample space is the set of real numbers between $0$ and $1$
+\[
+\Omega = \{x : 0 < x < 1\}
+\]
+\par\vspace{0.5 cm}
+Tossing a coin until it comes up heads:
+\[
+\Omega = \{[\mbox{heads}],[\mbox{tails,heads}],[\mbox{tails,tails,heads}],[\mbox{tails,tails,tails,heads}],\ldots\}
+\]
+\par\vspace{0.5 cm}
+The objects of study in probability theory, called \textit{random variables}, are just real-valued functions defined on a sample space.
+\par\vspace{0.5 cm}
+If the elements of a sample space happen to be numbers, there is an obvious way to do this:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item Rolling a die: The value of the random variable is the number on the top face
+\item Pick a number between zero and one: The value of the random variable is the number chosen
+\end{itemize}
+\par\vspace{0.5 cm}
+If the outcomes are not numbers, a random variable is defined by assigning a real number to each outcome:
+\par\vspace{0.5 cm}
+In the coin toss experiment, he most common way to define a random variable is:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item If 'heads', the value of the random variable is 1
+\item If 'tails', the value of the random variable is 0
+\end{itemize}
+\par\vspace{0.5 cm}
+This is not the only possibility, we could pick any two distinct numbers to assign to 'heads' and 'tails'.  
+\par\vspace{0.5 cm}
+We could even assign the same number to both 'heads' and 'tails', although the resulting random variable would not be very interesting because it would take the same value regardless of the outcome of the experiment.
+\par\vspace{0.5 cm}
+In some experiments, such as rolling a pair of dice, it is common to assign the same number to more than one outcome.  Each of the outcomes
+\[
+(1,5),(2,4),(3,3),(4,2),(5,1)
+\]
+are typically assigned a value of '6' when defining a random variable on this sample space.
+\section{Random Variables}
+Random variables are numerical values that represent the outcomes of probability experiments.
+\par\vspace{0.5 cm}
+There are two distinct types of random variables:
+\par\vspace{0.5 cm}
+\begin{itemize}
+\item \textit{Discrete} random variables assume a (possibly infinite) discrete set of values, usually integers.
+\item \textit{Continuous} random variables assume all values on an interval of the real line.
+\end{itemize}
+\par\vspace{0.5 cm}
+There are countless examples of both types of random variables.  We will examine a few of the most commonly used ones.
+\subsection{Discrete Random Variables}
+\par\vspace{0.5 cm}
+\begin{example*}
+Bernoulli random variable:  The Bernoulli experiment has two outcomes, "success" and "failure".  The value assigned to the Bernoulli random variable is:
+\par\vspace{0.5 cm}
+\begin{tabular}{lc}
+Outcome & Value\\
+\hline
+"success" & 1\\
+"failure & 0
+\end{tabular}
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*}
+Geometric random variable:  In the geometric experiment we conduct independent Bernoulli trials with a constant probability of success until the first success occurs.  The value assigned to the geometric random variable is the number of failures preceding the first success:
+\par\vspace{0.5 cm}
+\begin{tabular}{lc}
+Outcome & Value\\
+\hline
+H & 0\\
+TH & 1\\
+TTH & 2\\
+TTTH & 3 \\
+TTTTH & 4\\
+\vdots & \vdots
+\end{tabular}
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*}
+Binomial random variable:  In the binomial experiment we conduct a predetermined number $n$ of independent Bernoulli trials with constant probability of success.  The value assigned to the binomial random variable is the number of successes out of $n$ trials:
+\par\vspace{0.5 cm}
+\begin{tabular}{lc}
+Outcome & Value\\
+\hline
+0 successes & 0\\
+1 success & 1\\
+2 successes & 2\\
+\vdots & \vdots\\
+n successes & n
+\end{tabular}
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*}
+Poisson random variable:  The Poisson experiment produces a count that may be zero or a positive integer.  The value assigned to the Poisson random variable is the same as the count.
+\par\vspace{0.5 cm}
+\begin{tabular}{lc}
+Count & Value\\
+\hline
+0 & 0\\
+1 & 1\\
+2 & 2\\
+3 & 3\\
+\vdots & \vdots
+\end{tabular}
+\end{example*}
+\subsection{Continuous Random Variables}
+\par\vspace{0.5 cm}
+\begin{example*}
+Uniform random variable:  A uniform random variable assumes values between zero and one:
+\par\vspace{0.5 cm}
+\[
+X\in[0,1]\quad\mbox{or}\quad 0\leq x \leq 1
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*}
+Normal random variable:  A normal random variable random assumes any real number:
+\par\vspace{0.5 cm}
+\[
+X\in(-\infty,\infty)\quad\mbox{or}\quad -\infty < x < \infty
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*}
+Beta random variable:  A beta random variable random assumes a value in the interval $[0,1]$:
+\par\vspace{0.5 cm}
+\[
+X\in[0,1]\quad\mbox{or}\quad 0 \leq x \leq 1
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*}
+Gamma random variable:  A gamma random variable random assumes a value in the interval $(0,\infty)$:
+\par\vspace{0.5 cm}
+\[
+X\in(0,\infty)\quad\mbox{or}\quad 0 < x < \infty
+\]
+The \textit{exponential} distribution is a special case of the gamma distribution.
+\end{example*}

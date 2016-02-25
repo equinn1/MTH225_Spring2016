@@ -1,0 +1,36 @@
+\documentclass[12pt]{amsbook}
+%\usepackage{amssymb}
+%this is a comment
+\theoremstyle{plain}    
+\numberwithin{section}{chapter}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{definition*}{Definition}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{problem*}{Problem}[section]
+\newtheorem{example*}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem*}{Theorem}[section]
+\newtheorem{lemma*}{Lemma}[section]
+\newtheorem{solution}{Solution}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}
+%\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\begin{document}
+\title{MTH225 Spring 2016}
+\maketitle
+\author{E. Quinn}
+\numberwithin{equation}{section}
+\setcounter{tocdepth}{4} 
+\tableofcontents
+\mainmatter 
+\chapter{Introduction}
+\input{MTH225_preliminaries_and_definitions}
+\chapter{Probability Distributions}
+\input{MTH225_probability_distributions}
+\chapter{Frequentist and Bayesian Inference}
+\input{MTH225_statistical_inference}
+\end{document}
+
+
+
+

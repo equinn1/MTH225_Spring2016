@@ -1,0 +1,83 @@
+\section{Probability Distributions}
+A \textit{probability distribution} associates probabilities with the values of a random variable.  
+\par\vspace{0.5 cm}
+\subsection{Discrete probability distributions, parameters and probability mass functions}
+A \textit{discrete probability distribution} associates values of discrete random variables with probabilities through a \textit{probability mass function}.
+\par\vspace{0.5 cm}
+\begin{example*} 
+A Bernoulli random variable takes only two values, $0$ and $1$, associated with "failure" and "success", respectively. 
+\par\vspace{0.5 cm}
+The single parameter $\theta$ represents the probability of "success". 
+\par\vspace{0.5 cm}
+The probability mass function is defined by:
+\[
+p(x) = \theta^x(1-\theta)^{1-x}\quad\mbox{for}\quad x=0,1
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*} 
+A Poisson random variable takes values $0,1,2,3,\ldots$.
+\par\vspace{0.5 cm}
+The single parameter $\lambda$ must be greater than zero. 
+\par\vspace{0.5 cm}
+The probability mass function is defined by:
+\[
+p(x) = \frac{\lambda^xe^{-\lambda}}{x!},\quad x=0,1,2,3,\ldots
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*} 
+A binomial distribution has two parameters, $n$ representing the number of trials, and $p$ representing the probability of success on each trial.  
+\par\vspace{0.5 cm}
+The probability mass function is defined by:
+\[
+p(x) = {n\choose x}p^x(1-p)^{n-x}\quad\mbox{for}\quad x=0,1,2,\ldots,n
+\]
+\end{example*}
+\subsection{Continuous probability distributions, parameters and probability density functions}
+A \textit{continuous probability distribution} associates ranges of values of a random variable with probabilities through a \textit{probability density function}.
+\par\vspace{0.5 cm}
+\begin{example*} 
+\par\vspace{0.5 cm}
+A uniform random variable has two parameters $a$ and $b$.  Both must be greater than zero, and $a$ must be less than $b$. 
+\par\vspace{0.5 cm}
+The probability density function is defined by:
+\[
+f(x) = \frac{1}{b-a},\quad a\leq x\leq b
+\]
+\par\vspace{0.5 cm}
+If $a$ and $b$ are not specified, they are assumed to be zero and one, respectively:
+\[
+f(x) = 1,\quad 0\leq x\leq 1
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*} 
+\par\vspace{0.5 cm}
+A normal or Gaussian random variable has two parameters $\mu$ (the mean or location) and $sigma$ (the standard deviation or dispersion).  $\mu$ can take any value, but $\sigma$ must be positive.
+\par\vspace{0.5 cm}
+The probability density function of the normal distribution is:
+\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right),\quad -\infty < x < \infty
+\]
+\par\vspace{0.5 cm}
+If $\mu=0$ and $\sigma=1$, $x$ is said to have a standard normal distribution.  In this case the density function is:
+\[
+f(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{x^2}{2}\right)\quad -\infty<x<\infty
+\]
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*} 
+\par\vspace{0.5 cm}
+A gamma random variable has two parameters $\alpha$ (shape) and $beta$ (scale).  Both must be positive.
+\par\vspace{0.5 cm}
+The gamma distribution takes values on the interval $(0,\infty)$.
+\end{example*}
+\par\vspace{0.5 cm}
+\begin{example*} 
+\par\vspace{0.5 cm}
+A beta random variable has two parameters $\alpha$ (shape) and $beta$ (scale).  Both must be positive.
+\par\vspace{0.5 cm}
+The beta distribution takes values on the interval $(0,1)$.
+\end{example*}
+
