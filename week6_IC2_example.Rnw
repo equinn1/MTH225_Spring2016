@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\begin{document}
+\section*{Week6 IC2 Example}
+Pick the variable for your group by changing the y<-Y5 statement  (Y1 for group 1, Y2 for group 2, etc.)
+<<>>=
+load("week6_IC1_problem1.Rdata")
+str(Lvl)
+y<-Y5
+N<-length(y)
+@
+\subsection*{Peform a classical or frequentist ANOVA}
+This is also known as an "ordinary least squares" ANOVA.
+<<>>=
+aov1<-aov(y~Lvl)            #run the ANOVA with factor Lvl
+summary(aov1)         
+tapply(Y5, Lvl, mean)       #compute means by level
+boxplot(Y5~Lvl)             #boxplots of data by level
+@
+The coefficients represent the estimates of alpha1, (alpha2-alpha1), and (alpha3-alpha1), respectively:
+<<>>=
+aov1$coefficients
+@
+\subsection*{perform a Bayesian ANOVA}
+<<>>=
+L<-nlevels(Lvl)               #number of levels for the factor
+level<-as.integer(Lvl)        #convert factor to an integer
+                              #variable Lvl contains the single factor levels
+@
+Call STAN with model file specifying separate standard deviations by level
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("week6_IC1_problem1.stan")       #call STAN using defaults
+print(stanfit)
+@
+launch shinystan
+<<>>=
+library(shinystan)
+launch_shinystan(stanfit)
+@
+\end{document}
