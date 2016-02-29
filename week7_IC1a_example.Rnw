@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\begin{document}
+Week7IC1 Example
+<<>>=
+cpuns<-read.csv("cputiming.csv")
+str(cpuns)
+summary(cpuns)
+@
+Pick the variable for your group by uncommenting the appropriate statements:
+<<>>=
+#attach(cpuns)                 #make column names visible
+ns<-as.numeric(cpuns$nanosec)
+ml<-as.numeric(cpuns$mloops)
+
+y<-(ns-mean(ns))/sd(ns)
+str(y)
+x<-as.numeric(ml)
+str(x)
+
+N<-length(y)             #get sample size
+str(N)
+dump(c("x","y","N"),"week7_IC1_problem1.data.R")
+ls()
+
+@
+Call STAN
+<<>>=
+library(rstan)                                #make sure rstan is available
+#rstan_options(auto_write = TRUE)              #use multiple cores
+#options(mc.cores = parallel::detectCores())   #if we have them
+set_cppo(mode="debug")
+#stanfit<-stan("week7_IC1_problem1.stan",chains=1)       #call STAN using defaults
+print(stanfit)
+@
+Launch shinystan
+<<>>=
+library(shinystan)                                   #launch shinystan
+#launch_shinystan(stanfit)                            
+@
+
+\end{document}
