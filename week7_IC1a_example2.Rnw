@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\begin{document}
+Week7IC1 Example 2
+<<>>=
+load("EPA_mileage.Rdata")
+str(epa)
+@
+Select city records only:
+<<>>=
+epacity<-subset(epa,C.H=='C')  #select city mileage - C.H must be 'C' for city
+nrow(epacity)
+weight<-epacity$etw       #etw has vehicle weight
+mpg<-epacity$mpg          #mpg has miles per gallon
+N<-nrow(epacity)          #number of observations
+mean(mpg)
+sd(mpg)
+@
+Ordinary least squares regression
+<<>>=
+lm1<-lm(mpg~weight)
+summary(lm1)
+@
+Call STAN
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("week7_IC1a_problem1.stan")     #call STAN using defaults
+print(stanfit)
+@
+Launch shinystan
+<<>>=
+library(shinystan)                                   #launch shinystan
+launch_shinystan(stanfit)                            
+@
+
+\end{document}
