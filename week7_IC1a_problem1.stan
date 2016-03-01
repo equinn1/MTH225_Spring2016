@@ -5,7 +5,7 @@ data {
   real mpg[N];            //y values - nanoseconds
 }
 parameters {
-  real<lower=0> icpt;              //2 Parameters - slope and intercept
+  real icpt;              //2 Parameters - slope and intercept
   real slope;
   real<lower=0> sigma;             //residual standard error
 }
