@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\begin{document}
+Week12IC1 Example 1
+<<>>=
+load("EPA_mileage.Rdata")
+str(epa)
+@
+Separate cars and trucks:
+<<>>=
+cartruck<-as.numeric(epa$car.truck)
+str(epa$car.truck)
+str(cartruck)
+cityhwy<-as.numeric(epa$C.H)
+mpg<-epa$mpg          #mpg has miles per gallon
+N<-length(mpg)
+N_lvls_a<-2
+N_lvls_b<-2
+@
+Ordinary least squares anova
+<<>>=
+lm1<-lm(mpg~cartruck+cityhwy)
+summary(lm1)
+lm1$coefficients
+@
+
+Call STAN
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+stanfit<-stan("week12_IC1a_example1.stan")     #call STAN using defaults
+print(stanfit)
+@
+Launch shinystan
+<<>>=
+library(shinystan)                                   #launch shinystan
+launch_shinystan(stanfit)                            
+@
+
+\end{document}
