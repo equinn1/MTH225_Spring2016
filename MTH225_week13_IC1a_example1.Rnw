@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\begin{document}
+Week13IC1 Example 1 Multilevel logistic model
+<<>>=
+library(rstan)                                #make sure rstan is available
+rstan_options(auto_write = TRUE)              #use multiple cores
+options(mc.cores = parallel::detectCores())   #if we have them
+@
+
+<<>>=
+load("MTH225_week13_IC1a_example1.Rdata")
+str(d)
+print(d)
+
+# make the tank cluster variable
+d$tank <- 1:nrow(d)
+N<-nrow(d)
+surv<-d$surv
+tank<-d$tank
+tsize<-as.integer(d$size)
+tcount<-d$density
+
+stanfit<-stan("MTH225_week13_IC1a_example1.stan")     #call STAN
+print(stanfit)
+print(get_stanmodel(stanfit))
+@
+
+Launch shinystan
+<<>>=
+library(shinystan)                                   #launch shinystan
+launch_shinystan(stanfit)                            
+@
+
+\end{document}
