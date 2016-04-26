@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\begin{document}
+
+<<>>=
+library("rstan");
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+library("ggplot2");
+
+source("MTH225_Week14_example1.data.R");
+
+stanfit <- stan("MTH225_Week14_example1.stan")
+fit_predict_ss <- extract(stanfit, permuted=TRUE);
+str(fit_predict_ss)
+print(stanfit);
+print(get_stanmodel(stanfit))
+@
+
+<<>>=
+# plot x1 vs y1
+df1 <- data.frame(x1=x1, y1=y1);
+plot <- qplot(x1,y1, data=df1, xlim=c(-8,8), ylim=c(-4,4));
+plot
+@
+
+<<>>=
+# plot fits vs. simulated value from which fits drawn
+df <- data.frame(x2=x2, y2_samp=fit_predict_ss$y2[100,]);
+plot <- qplot(x2,y2_samp, data=df, xlim=c(-8,8), ylim=c(-4,4));
+plot
+@
+
+
+\end{document}
