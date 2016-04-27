@@ -6,7 +6,7 @@ data {
   int<lower=1,upper=2> level2[N];       //level of factor 2 (integer 1 or 2)
 }
 parameters {
-  real alpha[4];                //Parameters for each of the four possible combinations of levels 1 and 2
+  real alpha[4];                //Parameters for each of the four combinations of levels of factors 1 and 2
   real<lower=0> sigma_e;        //common error standard deviation
 }
 model {
