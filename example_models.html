@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>Sample STAN model files</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="../../stonehill.css" />
+
+</head><body bgcolor="#ffffff">
+
+<h1><center>MTH225 Example Model Files</center></h1>
+<div>
+<img src="wide_ensemble.png" alt="munich olympic park image" height="300" width="100%">
+</div>
+<h2>Parameter Estimation</h2>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td><td><b>The Distribution</b></tr>
+<tr><td>Estimate the parameter of a Poisson distibution</td><td><a href="Poisson.stan">Poisson.stan</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Poisson_distribution">the Poisson distribution</td></tr>
+<tr><td>Estimate the parameter of a Bernoulli distibution</td><td><a href="Bernoulli.stan">Bernoulli.stan</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">the Bernoulli distribution</td></tr>
+<tr><td>Estimate the parameter of an exponential distibution</td><td><a href="exponential.stan">exponential.stan</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Exponential_distribution">the exponential distribution</td></tr>
+<tr><td>Estimate the parameters of a beta distibution</td><td><a href="beta.stan">beta.stan</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Beta_distribution">the beta distribution</td></tr>
+<tr><td>Estimate the parameters of a gamma distibution</td><td><a href="gamma.stan">gamma.stan</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Gamma_distribution">the gamma distribution</td></tr>
+<tr><td>Estimate the parameters of a normal distibution</td><td><a href="normal.stan">nomal.stan</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Normal_distribution">the normal distribution</td></tr>
+</table>
+<p>
+<p>
+<h2>Comparing Two Means</h2>
+<h3>Data has separate variables for each group</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Compare the means of two normal samples</td><td><a href="two_sample_normal.stan">two_sample_normal.stan</a></td></tr>
+<tr><td>Compare the means of two exponential samples</td><td><a href="two_sample_exponential.stan">two_sample_exponential.stan</a></td></tr>
+<tr><td>Compare the means of two Poisson samples</td><td><a href="two_sample_Poisson.stan">two_sample_Poisson.stan</a></td></tr>
+</table>
+<h3>Data has a single vector with an indicator variable for group</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Compare the means of two normal samples</td><td><a href="two_sample_normal_ix.stan">two_sample_normal_ix.stan</a></td></tr>
+<tr><td>Compare the means of two exponential samples</td><td><a href="two_sample_exponential_ix.stan">two_sample_exponential_ix.stan</a></td></tr>
+<tr><td>Compare the means of two Poisson samples</td><td><a href="two_sample_Poisson_ix.stan">two_sample_Poisson_ix.stan</a></td></tr>
+</table>
+<p>
+<p>
+<h2>Linear Models</h2>
+<h3>Simple and Multiple Regression</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Simple Regression</td><td><a href="simple_regression.stan">simple_regression.stan</a></td></tr>
+<tr><td>Multiple Regression with Two Predictors</td><td><a href="regression_two_predictors.stan">regression_two_predictors.stan</a></td></tr>
+<tr><td>Multiple Regression with Three Predictors</td><td><a href="regression_three_predictors.stan">regression_three_predictors.stan</a></td></tr>
+</table>
+<h3>Single factor ANOVA</h3>
+<h4>Models assuming the same standard error at all levels</h4>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Single factor ANOVA with two levels</td><td><a href="single_factor_anova_two_levels.stan">single_factor_anova_two_levels.stan</a></td></tr>
+<tr><td>Single factor ANOVA with three levels</td><td><a href="single_factor_anova_three_levels.stan">single_factor_anova_three_levels.stan</a></td></tr>
+<tr><td>Single factor ANOVA with four levels</td><td><a href="single_factor_anova_four_levels.stan">single_factor_anova_four_levels.stan</a></td></tr>
+</table>
+<h4>Models allowing different standard error at each level</h4>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Single factor ANOVA with two levels</td><td><a href="single_factor_anova_two_levels_nh.stan">single_factor_anova_two_levels_nh.stan</a></td></tr>
+<tr><td>Single factor ANOVA with three levels</td><td><a href="single_factor_anova_three_levels_nh.stan">single_factor_anova_three_levels_nh.stan</a></td></tr>
+<tr><td>Single factor ANOVA with four levels</td><td><a href="single_factor_anova_four_levels_nh.stan">single_factor_anova_four_levels_nh.stan</a></td></tr>
+</table>
+<h3>Two factor ANOVA</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Two factor ANOVA without interaction</td><td><a href="two_factor_anova_without_interaction.stan">two_factor_anova_without_interaction.stan</a></td></tr>
+<tr><td>Two factor ANOVA with interaction</td><td><a href="two_factor_anova_with_interaction.stan">two_factor_anova_with_interaction.stan</a></td></tr>
+</table>
+<h3>ANOVA Models with Covariates (ANCOVA)</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Single factor ANOVA with one covariate - equal slopes</td><td><a href="single_factor_ancova_equal_slopes.stan">single_factor_ancova_equal_slopes.stan</a></td></tr>
+<tr><td>Single factor ANOVA with one covariate - unequal slopes</td><td><a href="single_factor_ancova_unequal_slopes.stan">single_factor_ancova_unequal_slopes.stan</a></td></tr>
+<tr><td>Single factor ANOVA with one covariate - unequal slopes and standard deviations</td><td><a href="single_factor_ancova_unequal_slopes_and_sd.stan">single_factor_ancova_unequal_slopes_and_sd.stan</a></td></tr>
+</table>
+<h3>Logistic Regression</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Logistic simple regression</td><td><a href="logistic_simple_regression.stan">logistic_simple_regression.stan</a></td></tr>
+<tr><td>Two factor logistic ANOVA</td><td><a href="two_factor_logistic.stan">two_factor_logistic.stan</a></td></tr>
+</table>
+<h2>Miscellaneous</h2>
+<h3>Hierarchical Linear Models</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Hierarchical two factor logistic ANOVA</td><td><a href="hierarchical_two_factor_logistic.stan">hierarchical_two_factor_logistic.stan</a></td></tr>
+</table>
+<h3>Gaussian Process Models</h3>
+<table border="1" width="100%">
+<tr align="center"><td><b>Model</b></td><td><b>File name</b></td></tr>
+<tr><td>Gaussian Process Model</td><td><a href="gaussian_process.stan">gaussian_process.stan</a></td></tr>
+</table>
+
+</p></body></html>

@@ -1,12 +1,12 @@
-//model file for week1 parameter estimation exercise
+//Estimate the parameter of a Poisson distibution
 data {
   int N;                  //sample size
-  int<lower=0> y[N];      //data values
+  int<lower=0> y[N];      //y values
 }
 parameters {
-  real<lower=0> lambda;   //single parameter for poisson
+  real<lower=0> lambda;   //parameter is positive
 }
 model {
   lambda ~ normal(0,100); //half-normal prior 
-  y ~ poisson(lambda);    //process data
+  y ~ poisson(lambda);    //Poissonn likelihood 
 }
