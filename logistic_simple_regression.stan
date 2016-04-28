@@ -18,5 +18,6 @@ transformed parameters{
 model{
   beta0 ~ normal(0 , 5);           //logistic parameters for intercept
   beta1 ~ normal(0 , 5);           //logistic parameters for slope
+  sigma ~ cauchy(0,10);            //half-cauchy prior for sigma
   success ~ binomial_logit( count , lp );  //success likelihood
 }
