@@ -13,6 +13,7 @@ parameters {
 model {
   beta ~ normal(0,100);   //normal priors for betas
   sigma ~ cauchy(0,10);   //half-cauchy prior for sigma 
-
-  y ~ normal(beta[1]+beta[2]*x1+beta[3]*x2+beta[4]*x3, sigma);   //model normal with parameters (mu,sigma)
+  for(i in 1:N) {
+     y[i] ~ normal(beta[1]+beta[2]*x1[i]+beta[3]*x2[i]+beta[4]*x3[i],sigma);   
+  }
 }

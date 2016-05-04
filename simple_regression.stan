@@ -11,6 +11,8 @@ parameters {
 model {
   beta ~ normal(0,100);   //normal priors for intercept and slope
   sigma ~ cauchy(0,10);   //half-cauchy prior for sigma 
-
-  y ~ normal(beta[1]+beta[2]*x,sigma);   //model normal with parameters (mu,sigma)
+  
+  for(i in 1:N) {
+     y[i] ~ normal(beta[1]+beta[2]*x[i],sigma);   //model normal with parameters (mu,sigma) 
+  }
 }
