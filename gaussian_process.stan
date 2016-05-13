@@ -1,5 +1,6 @@
 // Predict from Gaussian Process
 // Fixed covar function: eta_sq=1, rho_sq=1, sigma_sq=0.1
+// Example from Richard McElreath's Statistical Rethinking text
 
 data {
   int<lower=1> N1;     

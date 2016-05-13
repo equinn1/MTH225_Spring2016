@@ -1,3 +1,5 @@
+//Example from Richard McElreath's Statistical Rethinking text
+
 data{
 int<lower=1> N;                    //sample size
 int tcount[N];                     //number in this tank initially
